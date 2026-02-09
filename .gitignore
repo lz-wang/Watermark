@@ -1,0 +1,33 @@
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+*.a
+*.o
+
+# Build outputs
+/bin/
+/cover/
+*.coverprofile
+*.cov
+
+# Local build artifacts
+/watermark
+/cmd/watermark/watermark
+
+# Go workspace files
+/go.work
+/go.work.sum
+
+# Editor
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
