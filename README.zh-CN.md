@@ -1,20 +1,20 @@
-# Go Watermark
+# Go Watermark（水印工具）
 
-A Go-based image watermark tool that supports:
+本项目提供 Go 语言的图片水印工具，功能包括：
 
-- Repeated tiled text watermark with adjustable spacing, angle, opacity, font size, and color.
-- Single-position watermark with automatic foreground color based on local brightness and an outline stroke.
-- JPEG-safe saving with background compositing.
+- 重复平铺文字水印（可调整间距、角度、透明度、字号、颜色）
+- 单点位置水印（根据背景亮度自动选用黑/白字，并绘制描边）
+- 保存 JPEG 时自动进行背景合成，避免透明通道丢失
 
-## Build
+## 构建
 
 ```bash
 go build ./cmd/watermark
 ```
 
-## CLI Usage
+## CLI 用法
 
-Repeated watermark (requires font path):
+重复平铺水印（需要指定字体路径）：
 
 ```bash
 ./watermark -mode repeat \
@@ -24,7 +24,7 @@ Repeated watermark (requires font path):
   -font /path/to/font.ttf
 ```
 
-Positioned watermark:
+单点位置水印：
 
 ```bash
 ./watermark -mode position \
@@ -33,7 +33,7 @@ Positioned watermark:
   -text "CONFIDENTIAL"
 ```
 
-## Library Usage
+## 作为库使用
 
 ```go
 package main
@@ -87,11 +87,11 @@ func colorNRGBA(r, g, b uint8) color.NRGBA {
 }
 ```
 
-## Notes
+## 说明
 
-- `repeat` mode requires a font path.
-- `position` mode tries the provided font, then common Arial locations, and finally falls back to the Go regular font.
+- `repeat` 模式要求提供字体路径。
+- `position` 模式优先使用传入字体，若为空或加载失败，会尝试常见的 Arial 路径，最后回退到 Go 内置字体。
 
-## Other Languages
+## 其他语言
 
-- Chinese: `README.zh-CN.md`
+- English: `README.md`
